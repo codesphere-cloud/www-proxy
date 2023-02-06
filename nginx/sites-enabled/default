@@ -1,0 +1,15 @@
+##
+#
+# Please see https://www.nginx.com/resources/wiki/start/topics/recipes/wordpress/ for more detailed examples.
+##
+
+# Default php wordpress configuration
+#
+server {
+	listen 3000 default_server;
+	listen [::]:3000 default_server;
+
+	server_name "~^www\.(.*)$" ;
+
+	return 301 $scheme://$1$request_uri;
+}
